@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Emoji</title>
+    <link rel="shortcut icon"
+        href="https://images.unsplash.com/photo-1496989981497-27d69cdad83e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHllbGxvdyUyMGNpcmNsZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60"
+        type="image/x-icon">
+    <link rel="stylesheet" href="./dist/output.css">
+</head>
+
+<body class="h-screen w-full bg-slate-950 text-white">
+    <!-- main div starts here  -->
+    <div class=" h-auto w-full flex items-center justify-center flex-col p-20">
+
+        <!-- header starts here  -->
+        <header>
+            <div id="upper-portion" >
+                <h1 class="text-5xl font-bold">Text <span  class="font-extrabold"> → </span> Emojis</h1>
+            </div>
+            <div id="upper-btns" class="flex bg-slate-800 w-80 mt-4 rounded-md items-center justify-evenly h-12">
+                <h3 id = "enc-btn" class="flex items-center bg-slate-700 h-9 w-32 pl-2 pr-1 rounded-md"><span class="pr-2"><svg fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20"
+                            viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></span>Encrypt Text</h3>
+                <h3 id = "dec-btn" class="flex items-center hidden:bg-slate-700 h-9 w-36 pl-1 pr-1 rounded-md "><span class="pr-2"><svg fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                            width="20">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 019.9-1"></path>
+                        </svg></span>Decrypt Emojis</h3>
+            </div>
+        </header>
+        <!-- header ends here  -->
+        <!-- encryption div starts here  -->
+        <div id="encryption" class=" w-1/2 h-auto flex flex-col items-start mt-9 ">
+            <div class="w-full mt-2">
+                <h3 class="text-sm text-slate-200 mb-2">1. Type a message</h3>
+                <textarea placeholder="Write something here." id="enc-textarea" cols="30" rows="5" class="h-16 w-full bg-slate-600 rounded-md placeholder-slate-400 outline-none p-3"></textarea>
+            </div>
+            <div class="w-full mt-2">
+                <h3 class="text-sm text-slate-200 mb-2 mt-8">2. Set a password</h3>
+                <input type="password" name="" id="enc-password" placeholder="E.g. 1234"  class="h-11 w-full bg-slate-600 rounded-md placeholder-slate-400 outline-none p-2">
+            </div>
+            <div class="w-full mt-2">
+                <h3 class="text-sm text-slate-200 mb-2 mt-8">3. Encrypt message</h3>
+                <button id="encryption-btn" class="h-11 w-full bg-slate-600 rounded-md outline-none p-2 flex item-center justify-center" ><span class="mr-1"><svg fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20"
+                            viewBox="0 0 24 24">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg></span>Encrypt Text</button>
+            </div>
+        </div>
+        <!-- encryption div ends here  -->
+        <!-- decryption div starts here  -->
+        <div id="decryption" class=" w-1/2 h-auto flex flex-col items-start mt-9 hidden">
+            <div  class="w-full mt-2">
+                <h3  class="text-sm text-slate-200 mb-2">1. Paste encrypted emojis</h3>
+                <textarea placeholder="Paste encrypted emojis here." id="dec-textarea" cols="30" rows="5" class="h-16 w-full bg-slate-600 rounded-md placeholder-slate-400 outline-none p-3"></textarea>
+            </div>
+            <div class="w-full mt-2">
+                <h3 class="text-sm text-slate-200 mb-2 mt-8" >2. Type the password</h3>
+                <input type="password" name="" id="dec-password" placeholder="E.g. 1234" class="h-11 w-full bg-slate-600 rounded-md placeholder-slate-400 outline-none p-2">
+            </div>
+            <div  class="w-full mt-2">
+                <h3 class="text-sm text-slate-200 mb-2 mt-8">3. Decrypt Emojis</h3>
+                <button id="decryption-btn" class="h-11 w-full bg-slate-600 rounded-md  outline-none p-2 flex item-center justify-center"><span class="mr-1"><svg fill="none" height="20" shape-rendering="geometricPrecision" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                            width="20">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 019.9-1"></path>
+                        </svg></span>Decrypt Emojis</button>
+
+            </div>
+        </div>
+        <!-- decryption div ends here  -->
+        <!-- result div starts here  -->
+        <div id="result" class="w-1/2 h-auto bg-slate-600 p-5 mt-10 text-xl rounded-md hidden"></div>
+         <!-- result div ends here  -->
+    </div>
+    <!-- main div ends here  -->
+    <script src="./dist/script.js"></script>
+</body>
+
+</html>
